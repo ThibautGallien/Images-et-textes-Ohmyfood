@@ -8,37 +8,81 @@
 
 /****** VARIABLES ***********/
 :root {
-  --primary-color: #9356DC; /* Couleur principale */
-  --button-color: #FF79DA;  /* Couleur des boutons */
-  --new: #99E2D0;           /* Couleur du label 'Nouveau' */
-  --footer-color: #353535;  /* Couleur de fond du footer */
-  --text-color: #000000;    /* Couleur du texte */
-  --grey-color: #EAEAEA;    /* Pour la barre de localisation par ex. */
-  --section-color:#F6F6F6;  /* Couleur de fond des sections */
+  --primary-color: #9356dc; /* Couleur principale */
+  --button-color: #ff79da; /* Couleur des boutons */
+  --new: #99e2d0; /* Couleur du label 'Nouveau' */
+  --footer-color: #353535; /* Couleur de fond du footer */
+  --text-color: #000000; /* Couleur du texte */
+  --grey-color: #eaeaea; /* Pour la barre de localisation par ex. */
+  --section-color: #f6f6f6; /* Couleur de fond des sections */
 }
 
 /* LOADER */
+/* Loader couvrant toute la page */
 .loader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #fff; /* Fond blanc */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  animation: loading-appear 2s both ease-in-out;
+  pointer-events: none;
+  animation: loader-fadeout 2s both ease-in-out;
 }
 
-@keyframes  loading-appear {
-  50% {
-    opacity: 0.95;
+/* Spinner animé utilisant un dégradé conique */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--primary-color),
+    var(--button-color),
+    var(--new),
+    var(--primary-color)
+  );
+  background-size: 100% 100%; /* On affiche le gradient au complet */
+  background-repeat: no-repeat;
+  animation: spin 2s linear infinite;
+  position: relative;
+}
+
+/* Cercle intérieur pour créer l'effet d'anneau */
+.spinner::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* Animation de rotation du spinner */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation pour faire disparaître le loader en fondu */
+@keyframes loader-fadeout {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
   }
   100% {
     opacity: 0;
-    z-index: 0;
   }
 }
 
@@ -71,7 +115,6 @@ header {
   flex-direction: column;
   align-items: center;
   padding: 20px 0 10px;
-  
 }
 
 /* Logo */
@@ -86,7 +129,7 @@ header .logo {
   width: 100%;
   background-color: var(--grey-color);
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-  border: solid 1px #EAEAEA;
+  border: solid 1px #eaeaea;
   padding: 10px;
 }
 
@@ -129,7 +172,7 @@ header .logo {
 }
 
 /* Bouton principal */
-.presentation .cta-button {
+.cta-button {
   display: inline-block;
   background-color: var(--button-color);
   padding: 14px 28px;
@@ -138,11 +181,16 @@ header .logo {
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 5px 15px rgba(151, 71, 255, 0.3);
+  text-decoration: none; /* Enlève le soulignement par défaut */
+  color: inherit; /* Utilise la couleur héritée */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #FF79DA;
-  box-shadow: 0px 5px 15px rgba(151, 71, 255, 0.5);
+  background-color: #ff79da; /* Couleur légèrement éclaircie */
+  box-shadow: 0px 5px 15px rgba(151, 71, 255, 0.5); /* Ombre plus prononcée */
+  transform: scale(1.05); /* Petit agrandissement */
 }
 
 /****** FONCTIONNEMENT ***********/
@@ -230,7 +278,7 @@ header .logo {
   background-color: #fff;
   border-radius: 20px;
   overflow: hidden; /* pour arrondir les coins de l’image */
-  position: relative; 
+  position: relative;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -247,7 +295,7 @@ header .logo {
   position: absolute;
   top: 15px;
   right: 15px;
-  background-color: #99E2D0;
+  background-color: #99e2d0;
   color: #008766;
   font-size: 14px;
   padding: 5px 10px;
@@ -285,12 +333,11 @@ header .logo {
   opacity: 0;
   transition-property: all;
   transition-duration: 2s;
-
-    }
-    .favorite-icon:hover{
-    opacity: 1;
-    color: #9747ff;
-    }
+}
+.favorite-icon:hover {
+  opacity: 1;
+  color: #9747ff;
+}
 
 /****** FOOTER ***********/
 .footer {

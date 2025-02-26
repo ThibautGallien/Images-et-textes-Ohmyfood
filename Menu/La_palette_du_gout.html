@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/2f7c804616.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -19,8 +20,17 @@
   <div class="menu">
     <div class="restaurant-container">
       <h2 class="restaurant-name">La palette du goût</h2>
-      <input type="checkbox" id="fav" hidden>
-      <label for="fav" class="favorite-icon"></label>
+      <!-- Checkbox caché -->
+<input type="checkbox" id="fav" hidden>
+
+<!-- Label cliquable pour le favori -->
+<label for="fav" class="favorite-icon">
+  <!-- Cœur vide (par défaut) -->
+  <i class="fa-regular fa-heart empty-heart"></i>
+  <!-- Cœur plein qui se remplira (initialement transparent grâce au background-size 0) -->
+  <i class="fa-solid fa-heart filled-heart"></i>
+</label>
+
     </div>
     <div>
       <diV class="menu-category">
@@ -109,7 +119,7 @@
           </div>
         </div>
         <div class="check-panel">
-          <span class="icon">✔️</span>
+          <i class="fa-light fa-circle-check"></i>
         </div>
       </div>      
       </div>
@@ -134,7 +144,7 @@
           <a href="#">Mentions légales</a>
         </div>
         <div class="footer-nav">
-          <a href="#">Contact</a>
+          <a href="mail to:masuperbeadressemail@nomdedomaine.com">Contact</a>
         </div>
       </div>
     </footer>

@@ -8,15 +8,14 @@
 
 /****** VARIABLES ***********/
 :root {
-  --primary-color: #9356DC; /* Couleur principale */
-  --button-color: #FF79DA;  /* Couleur des boutons */
-  --new: #99E2D0;           /* Couleur du label 'Nouveau' */
-  --footer-color: #353535;  /* Couleur de fond du footer */
-  --text-color: #000000;    /* Couleur du texte */
-  --grey-color: #EAEAEA;    /* Pour la barre de localisation par ex. */
-  --section-color:#F6F6F6;  /* Couleur de fond des sections */
+  --primary-color: #9356dc; /* Couleur principale */
+  --button-color: #ff79da; /* Couleur des boutons */
+  --new: #99e2d0; /* Couleur du label 'Nouveau' */
+  --footer-color: #353535; /* Couleur de fond du footer */
+  --text-color: #000000; /* Couleur du texte */
+  --grey-color: #eaeaea; /* Pour la barre de localisation par ex. */
+  --section-color: #f6f6f6; /* Couleur de fond des sections */
 }
-
 
 /****** CONTENEUR PRINCIPAL ***********/
 /* Largeur max 368px, centré au milieu. Un padding horizontal pour “aérer”. */
@@ -65,7 +64,7 @@ header .logo {
   padding: 5px 10px;
 }
 
-.menu-img{
+.menu-img {
   width: 100%;
   height: 275px;
   z-index: -1;
@@ -96,27 +95,62 @@ header .logo {
   position: absolute;
   right: 15px;
   bottom: 10px;
-  width: 21px;
-  height: 22px;
+  width: 30px;
+  height: 30px; /* On peut ajuster la hauteur pour agrandir l'icône */
   cursor: pointer;
   display: flex;
-  transition: filter 0.3s ease;
-  background-image: url("../images/Icones/coeur vide.png");
-  background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
 }
 
-#fav:checked + .favorite-icon {
-  background-image: url("../images/Icones/coeur plein.png");
+/* Cœur vide toujours affiché en dessous */
+.empty-heart {
+  font-size: 30px;
+  z-index: 1;
+}
+
+/* Cœur plein superposé et animé */
+.filled-heart {
+  font-size: 30px;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* L'icône utilise un background gradient pour la couleur de remplissage */
+  background: linear-gradient(45deg, #9356dc, #ff79da);
+  /* Initialement, le gradient est "caché" en définissant sa taille à 0 */
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 2s ease;
+  /* Les propriétés suivantes permettent de "clipper" le background au texte */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Quand le checkbox est coché, le cœur plein se remplit */
+#fav:checked + .favorite-icon .filled-heart {
+  background-size: 100% 100%;
 }
 
 .menu-category {
-  font-size: 16px;
   font-weight: 300;
   margin-bottom: 15px;
   margin-left: 20px;
   border-bottom: var(--new) 3px solid;
   width: 40px;
   margin-top: 50px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .menu-card {
@@ -132,6 +166,21 @@ header .logo {
   margin-right: 15px;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.menu-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.menu-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.menu-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.menu-card:nth-child(4) {
+  animation-delay: 0.8s;
 }
 
 .plat {
@@ -154,7 +203,8 @@ header .logo {
   justify-content: space-between;
 }
 
-.plat, .plat-sub {
+.plat,
+.plat-sub {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -182,7 +232,7 @@ header .logo {
 }
 
 /* Style de l'icône check */
-.check-icon {
+.fa-light {
   width: 30px;
   height: 30px;
 }
@@ -195,22 +245,27 @@ header .logo {
   transition: width 0.3s ease;
 }
 
-
 .btn {
-  align-items: center;
-  background-color: var(--button-color);
+  display: block; /* Permet d'utiliser margin auto pour centrer */
+  width: 186px;
+  height: 50px;
+  margin: 40px auto 50px; /* 40px en haut, auto à gauche/droite, 50px en bas */
   padding: 14px 28px;
   font-size: 16px;
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  text-decoration: none;
+  color: white;
   box-shadow: 0px 5px 15px rgba(151, 71, 255, 0.3);
-  display: block;
-  margin: auto;
+  background: linear-gradient(to bottom, #9356dc, #ff79da);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #FF79DA;
+  background: linear-gradient(to bottom, #9356dc, #ff79da),
+    linear-gradient(to bottom, #ffffff26, #ffffff26);
+  background-blend-mode: lighten;
   box-shadow: 0px 5px 15px rgba(151, 71, 255, 0.5);
 }
 
