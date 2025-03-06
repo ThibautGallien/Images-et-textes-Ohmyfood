@@ -4,22 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ohmyfood</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Assure-toi d'inclure Font Awesome si nécessaire -->
+    <script
+      src="https://kit.fontawesome.com/2f7c804616.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="loader">
       <div class="spinner"></div>
-    </div>    
-    <class="main-container">
+    </div>
+    <div class="main-container">
       <header>
-        <img class="logo" src="./images/logo/ohmyfood.png" alt="Logo ohmyfood"/>
+        <img
+          class="logo"
+          src="./images/logo/ohmyfood.png"
+          alt="Logo ohmyfood"
+        />
       </header>
-    <div class="localisation-bar">
-      <div class="localisation">
-        <img src="./images/Icones/Pin.png" alt="Icône localisation"/>
-        <p>Paris, Belleville</p>
+      <div class="localisation-bar">
+        <div class="localisation">
+          <img src="./images/Icones/Pin.png" alt="Icône localisation" />
+          <p>Paris, Belleville</p>
+        </div>
       </div>
-    </div>  
 
       <section class="presentation">
         <h2>Réservez le menu qui vous convient</h2>
@@ -60,92 +69,121 @@
           <h2>Restaurants</h2>
         </div>
 
-        <!-- restaurant 1-->
         <div class="restaurants-cards">
+          <!-- Restaurant 1 -->
           <div class="card">
             <a href="./menu/La_palette_du_gout.html">
-            <img src="./images/restaurants/La palette du goût.jpg" alt="...">
-            <span class="new-label">Nouveau</span>
-            <img
-              src="./images/Icones/coeur vide.png"
-              alt="Favori"
-              class="favorite-icon"
-            />
-            <div class="card-content">
-              <h3 class="card-title">La palette du goût</h3>
-              <p class="card-subtitle">Ménilmontant</p>
-            </div>
-          </div>
+              <img
+                src="./images/restaurants/La palette du goût.jpg"
+                alt="La palette du goût"
+              />
+              <span class="new-label">Nouveau</span>
+              <div class="card-content">
+                <h3 class="card-title">La palette du goût</h3>
+                <p class="card-subtitle">Ménilmontant</p>
+              </div>
             </a>
+            <!-- Checkbox et label pour le favori -->
+            <input type="checkbox" id="fav1" hidden />
+            <label for="fav1" class="favorite-icon">
+              <i class="fa-regular fa-heart empty-heart"></i>
+              <i class="fa-solid fa-heart filled-heart"></i>
+            </label>
+          </div>
 
-        <!-- restaurant 2-->
+          <!-- Restaurant 2 -->
           <div class="card">
             <a href="Menu/La note enchantée.html">
-            <img src="./images/restaurants/La note enchantée.jpg" alt="...">
-            <span class="new-label">Nouveau</span>
-            <img
-              src="./images/Icones/coeur vide.png"
-              alt="Favori"
-              class="favorite-icon"
-            />
-            <div class="card-content">
-              <h3 class="card-title">La note enchantée</h3>
-              <p class="card-subtitle">Charonne</p>
-            </div>
-          </div>
+              <img
+                src="./images/restaurants/La note enchantée.jpg"
+                alt="La note enchantée"
+              />
+              <span class="new-label">Nouveau</span>
+              <div class="card-content">
+                <h3 class="card-title">La note enchantée</h3>
+                <p class="card-subtitle">Charonne</p>
+              </div>
             </a>
-          <!-- restaurant 3-->
+            <input type="checkbox" id="fav2" hidden />
+            <label for="fav2" class="favorite-icon">
+              <i class="fa-regular fa-heart empty-heart"></i>
+              <i class="fa-solid fa-heart filled-heart"></i>
+            </label>
+          </div>
+
+          <!-- Restaurant 3 -->
           <div class="card">
             <a href="./Menu/A la française.html">
-            <img src="./images/restaurants/A la française.jpg" alt="...">
-            <img
-              src="./images/Icones/coeur vide.png"
-              alt="Favori"
-              class="favorite-icon"
-            />
-            <div class="card-content">
-              <h3 class="card-title">À la française</h3>
-              <p class="card-subtitle">Cité Rouge</p>
-            </div>
+              <img
+                src="./images/restaurants/A la française.jpg"
+                alt="À la française"
+              />
+              <div class="card-content">
+                <h3 class="card-title">À la française</h3>
+                <p class="card-subtitle">Cité Rouge</p>
+              </div>
+            </a>
+            <input type="checkbox" id="fav3" hidden />
+            <label for="fav3" class="favorite-icon">
+              <i class="fa-regular fa-heart empty-heart"></i>
+              <i class="fa-solid fa-heart filled-heart"></i>
+            </label>
           </div>
-        </a>
-          <!-- restaurant 4-->
+
+          <!-- Restaurant 4 -->
           <div class="card">
             <a href="./Menu/Le délice des sens.html">
-            <img src="./images/restaurants/Le sens des délices.jpg" alt="...">
-            <img
-              src="./images/Icones/coeur vide.png"
-              alt="Favori"
-              class="favorite-icon"
-            />
-            <div class="card-content">
-              <h3 class="card-title">Le délice des sens</h3>
-              <p class="card-subtitle">Folie-Méricourt</p>
-            </div>
+              <img
+                src="./images/restaurants/Le sens des délices.jpg"
+                alt="Le délice des sens"
+              />
+              <div class="card-content">
+                <h3 class="card-title">Le délice des sens</h3>
+                <p class="card-subtitle">Folie-Méricourt</p>
+              </div>
+            </a>
+            <input type="checkbox" id="fav4" hidden />
+            <label for="fav4" class="favorite-icon">
+              <i class="fa-regular fa-heart empty-heart"></i>
+              <i class="fa-solid fa-heart filled-heart"></i>
+            </label>
           </div>
         </div>
-      </a>
       </section>
     </div>
-  </body>
+
     <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-logo">
-      <img src="./images/Icones/ohmyfood blanc.png" alt="Logo ohmyfood en blanc"/>
-    </div>
-    <div class="footer-nav">
-      <a href="#"><img src="./images/Icones/Proposer un restaurant.png">Proposer un restaurant</a>
-    </div>
-    <div class="footer-nav">
-      <a href="#"><img src="./images/Icones/Devenir partenaire.png">Devenir partenaire</a>
-    </div>
-    <div class="footer-nav">
-      <a href="#">Mentions légales</a>
-    </div>
-    <div class="footer-nav">
-      <a href="#">Contact</a>
-    </div>
-  </div>
-</footer>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img
+            src="./images/Icones/ohmyfood blanc.png"
+            alt="Logo ohmyfood en blanc"
+          />
+        </div>
+        <div class="footer-nav">
+          <a href="#"
+            ><img
+              src="./images/Icones/Proposer un restaurant.png"
+              alt="Proposer un restaurant"
+            />Proposer un restaurant</a
+          >
+        </div>
+        <div class="footer-nav">
+          <a href="#"
+            ><img
+              src="./images/Icones/Devenir partenaire.png"
+              alt="Devenir partenaire"
+            />Devenir partenaire</a
+          >
+        </div>
+        <div class="footer-nav">
+          <a href="#">Mentions légales</a>
+        </div>
+        <div class="footer-nav">
+          <a href="mailto:masuperbeadressemail@nomdedomaine.com">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
