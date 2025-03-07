@@ -89,7 +89,7 @@
 .main-container {
   width: 100%;
   max-width: 368px;
-  padding: 0 20px;
+
   margin: 0 auto;
 }
 
@@ -326,20 +326,15 @@ header .logo {
 
 /* Icône favori (cœur) */
 .restaurants-cards .favorite-icon {
-  position: absolute;
-  right: 15px;
-  bottom: 7px;
+  position: relative;
   width: 21px;
-  height: 70px;
   cursor: pointer;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Cœur vide toujours affiché en dessous */
 .empty-heart {
-  font-size: 29px;
+  font-size: 30px;
   z-index: 1;
 }
 
@@ -482,19 +477,19 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
     }
     /* Conteneur des cartes */
     .restaurants-cards {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: center;
       width: 100%;
-      margin: 40px auto;
+      margin: 40px 30px;
       position: relative;
     }
 
     /* Chaque carte */
     .restaurants-cards .card {
-      width: 490px;
-      height: 251px;
       border-radius: 20px;
       box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
       background-color: #fff;
@@ -503,7 +498,6 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
       flex-direction: column;
       margin-right: 50px;
       margin-bottom: 20px;
-      padding-bottom: 260px;
     }
 
     /* Image en haut de la carte */
@@ -533,6 +527,7 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
     }
 
     .card-title {
@@ -548,7 +543,6 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
 
     /* Icône favori (cœur) */
     .empty-heart {
-      position: absolute;
       top: 200px;
       right: 27px;
       font-size: 28px;
@@ -556,9 +550,9 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
     }
 
     .restaurants-cards .card .favorite-icon {
-      position: absolute;
-      top: 210px;
-      right: 27px;
+      position: relative;
+      left: 20px;
+      top: 20px;
       font-size: 10px;
       font-weight: 100;
     }
