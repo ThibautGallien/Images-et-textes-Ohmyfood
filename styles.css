@@ -85,7 +85,6 @@
   }
 }
 /****** CONTENEUR PRINCIPAL ***********/
-/* Largeur max 368px, centré au milieu. Un padding horizontal pour “aérer”. */
 .main-container {
   width: 100%;
   max-width: 368px;
@@ -107,7 +106,6 @@ a {
 }
 
 /****** HEADER ***********/
-/* On le sépare légèrement du haut de la page */
 header {
   display: flex;
   flex-direction: column;
@@ -247,7 +245,6 @@ header .logo {
 /****** SECTION RESTAURANTS ***********/
 .restaurants {
   width: 100%;
-  padding-bottom: 30px;
   padding-top: 60px;
   background-color: var(--section-color);
 }
@@ -307,32 +304,45 @@ header .logo {
 
 /* Contenu texte de la carte */
 .card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   padding: 15px;
 }
 
-/* Titre du restaurant */
-.restaurants-cards .card-title {
+/* Bloc texte (titre et sous-titre) */
+.text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
   font-size: 18px;
   font-weight: bold;
   margin: 0 0 4px 0;
 }
 
-/* Sous‐titre */
-.restaurants-cards .card-subtitle {
+.card-subtitle {
   margin: 0;
   font-size: 17px;
   font-weight: 300;
 }
 
+/* Bloc du favori (cœur) */
+.fav-block {
+  display: flex;
+  align-items: flex-start;
+}
+
 /* Icône favori (cœur) */
-.restaurants-cards .favorite-icon {
+.favorite-icon {
   position: relative;
   width: 21px;
   cursor: pointer;
   display: flex;
 }
 
-/* Cœur vide toujours affiché en dessous */
+/* Cœur vide */
 .empty-heart {
   font-size: 30px;
   z-index: 1;
@@ -354,7 +364,7 @@ header .logo {
   -webkit-text-fill-color: transparent;
 }
 
-/* Quand le checkbox est coché, le cœur plein se remplit */
+/* Au clic sur le checkbox, le cœur se remplit */
 input[type="checkbox"]:checked + .favorite-icon .filled-heart {
   background-size: 100% 100%;
 }
@@ -363,36 +373,262 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
 .footer {
   background-color: var(--footer-color);
   padding: 20px 0;
+  margin-top: 20px;
 }
 
-.footer-logo {
-  width: 139px;
-  height: 27px;
-  margin-left: 20px;
-  color: #fff;
-}
-
-.footer-nav {
+/* Conteneur vertical */
+.footer-content {
   display: flex;
-  margin-top: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   margin-left: 20px;
 }
 
+/* Logo */
+.footer-logo img {
+  width: 139px;
+  height: auto;
+  display: block;
+}
+
+/* Chaque bloc de navigation */
+.footer-nav {
+  margin: 0;
+}
+
+/* Lien dans la nav */
 .footer-nav a {
+  display: inline-flex;
+  align-items: center;
   font-size: 14px;
   font-weight: 500;
   color: #fff;
+  text-decoration: none;
 }
 
+/* Icônes dans la nav */
 .footer-nav img {
   width: 11px;
   height: 13px;
   margin-right: 10px;
 }
 
-/* Responsive mobile*/
+/* Responsive tablette */
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  /*CONTENEUR PRINCIPAL*/
+  .main-container {
+    max-width: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /*HEADER*/
+  header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+  header .logo {
+    width: 250px;
+    height: auto;
+    display: inline-block;
+  }
+
+  /*BARRE DE LOCALISATION*/
+  .localisation-bar,
+  .localisation {
+    text-align: center;
+    justify-content: center;
+  }
+  .localisation {
+    padding: 10px 20px;
+  }
+
+  /*PRÉSENTATION + BOUTON*/
+  .presentation {
+    text-align: center;
+    padding: 40px 0;
+  }
+  .presentation h2 {
+    font-size: 32px; /* Augmente la taille du titre */
+  }
+  .cta-button {
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  /*FONCTIONNEMENT*/
+  .fonctionnement {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .fonctionnement-step {
+    flex: 1;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: var(--section-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .fonctionnement-step img {
+    margin: 0 10px;
+  }
+
+  .fonctionnement-step p {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  /*SECTION RESTAURANTS*/
+  .restaurants {
+    padding-top: 40px;
+    background-color: var(--section-color);
+  }
+  .restaurants-title {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    text-align: left;
+  }
+  .restaurants-title h2 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .restaurants-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .restaurants-cards .card {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  .restaurants-cards .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 20px;
+    position: relative;
+  }
+  .text-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+  }
+  .card-subtitle {
+    font-size: 17px;
+    font-weight: 300;
+    margin: 0;
+  }
+  .fav-block {
+    display: flex;
+    align-items: flex-start;
+  }
+  .favorite-icon {
+    position: relative;
+    width: 21px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .empty-heart {
+    font-size: 30px;
+    z-index: 1;
+  }
+  .filled-heart {
+    font-size: 30px;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #9356dc, #ff79da);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 2s ease;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  input[type="checkbox"]:checked + .favorite-icon .filled-heart {
+    background-size: 100% 100%;
+  }
+
+  /*FOOTER*/
+  .footer {
+    background-color: var(--footer-color);
+    height: 114px;
+    padding-top: 50px;
+    margin-top: 20px;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+    gap: 20px;
+  }
+
+  .footer-nav {
+    order: 1;
+    margin: 0 10px 0 0;
+  }
+  .footer-logo {
+    order: 2;
+    margin-left: 50px;
+  }
+  .footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-nav img {
+    width: 11px;
+    height: 13px;
+    margin-right: 10px;
+  }
+  .footer-logo img {
+    width: 139px;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Responsive ordinateur*/
 @media screen and (min-width: 1440px) {
-  /* ---- Page pleine largeur ---- */
   body {
     margin: 0;
     padding: 0;
@@ -408,14 +644,13 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
 
   /* ---- Header ---- */
   header {
-    display: block; /* On repasse en block pour pouvoir centrer facilement */
+    display: block;
     text-align: center;
     padding: 20px 0;
   }
 
   header .logo {
     display: inline-block;
-    /* Ajuste éventuellement la taille si tu veux un logo plus grand */
   }
 
   /* ---- Barre de localisation (centrée) ---- */
@@ -429,7 +664,7 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
   /* ---- Titre H2 en 40px, bouton centré ---- */
   .presentation {
     text-align: center;
-    padding: 40px 0; /* Par exemple pour aérer un peu plus en desktop */
+    padding: 40px 0;
   }
   .presentation h2 {
     font-size: 40px;
@@ -468,7 +703,6 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
   /* ---- Restaurants ---- */
   .restaurants {
     padding-top: 10px;
-    padding-bottom: 10px;
 
     .restaurants-title {
       width: 1100px;
@@ -541,39 +775,65 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
       color: #666;
     }
 
-    /* Icône favori (cœur) */
-    .empty-heart {
-      top: 200px;
-      right: 27px;
-      font-size: 28px;
-      font-weight: 100;
-    }
-
+    /* Icône favori (cœur) positionné en haut à droite */
     .restaurants-cards .card .favorite-icon {
-      position: relative;
-      left: 20px;
-      top: 20px;
-      font-size: 10px;
-      font-weight: 100;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 28px;
     }
 
-    /* ---- Footer ---- */
+    .empty-heart {
+      font-size: inherit;
+      z-index: 1;
+    }
+
+    .filled-heart {
+      font-size: inherit;
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(45deg, #9356dc, #ff79da);
+      background-size: 0 100%;
+      background-repeat: no-repeat;
+      transition: background-size 2s ease;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Quand le checkbox est coché, le cœur plein se remplit */
+    input[type="checkbox"]:checked + .favorite-icon .filled-heart {
+      background-size: 100% 100%;
+    }
 
     .footer {
       height: 114px;
+      padding-top: 50px;
+      margin-top: 0;
     }
+
     .footer-content {
       display: flex;
-      justify-content: flex-end;
+      flex-direction: row;
       align-items: center;
-      gap: 50px;
-      padding-top: 50px;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 0 40px;
+      box-sizing: border-box;
     }
     .footer-nav {
       order: 1;
+      margin: 0;
     }
     .footer-logo {
       order: 2;
+      margin-left: 50px;
+    }
+    .footer-content {
+      gap: 20px;
     }
   }
 }

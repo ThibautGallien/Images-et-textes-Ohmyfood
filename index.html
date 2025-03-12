@@ -69,7 +69,7 @@
           <h2>Restaurants</h2>
         </div>
 
-        <div class="restaurants-cards">
+        <section class="restaurants-cards">
           <!-- Restaurant 1 -->
           <div class="card">
             <a href="./menu/La_palette_du_gout.html">
@@ -79,79 +79,92 @@
               />
               <span class="new-label">Nouveau</span>
               <div class="card-content">
-                <h3 class="card-title">La palette du goût</h3>
-                <p class="card-subtitle">Ménilmontant</p>
-                <input type="checkbox" id="fav1" hidden />
-                <label for="fav1" class="favorite-icon">
-                  <i class="fa-regular fa-heart empty-heart"></i>
-                  <i class="fa-solid fa-heart filled-heart"></i>
-                </label>
+                <!-- Bloc texte à gauche -->
+                <div class="text-block">
+                  <h3 class="card-title">La palette du goût</h3>
+                  <p class="card-subtitle">Ménilmontant</p>
+                </div>
+
+                <!-- Bloc favori à droite -->
+                <div class="fav-block">
+                  <input type="checkbox" id="fav1" hidden />
+                  <label for="fav1" class="favorite-icon">
+                    <i class="fa-regular fa-heart empty-heart"></i>
+                    <i class="fa-solid fa-heart filled-heart"></i>
+                  </label>
+                </div>
               </div>
             </a>
             <!-- Checkbox et label pour le favori -->
           </div>
 
-          <!-- Restaurant 2 -->
-          <div class="card">
-            <a href="Menu/La note enchantée.html">
-              <img
-                src="./images/restaurants/La note enchantée.jpg"
-                alt="La note enchantée"
-              />
-              <span class="new-label">Nouveau</span>
-              <div class="card-content">
-                <h3 class="card-title">La note enchantée</h3>
-                <p class="card-subtitle">Charonne</p>
-              </div>
-            </a>
-            <input type="checkbox" id="fav2" hidden />
-            <label for="fav2" class="favorite-icon">
-              <i class="fa-regular fa-heart empty-heart"></i>
-              <i class="fa-solid fa-heart filled-heart"></i>
-            </label>
-          </div>
-
-          <!-- Restaurant 3 -->
-          <div class="card">
-            <a href="./Menu/A la française.html">
-              <img
-                src="./images/restaurants/A la française.jpg"
-                alt="À la française"
-              />
-              <div class="card-content">
-                <h3 class="card-title">À la française</h3>
-                <p class="card-subtitle">Cité Rouge</p>
-              </div>
-            </a>
-            <input type="checkbox" id="fav3" hidden />
-            <label for="fav3" class="favorite-icon">
-              <i class="fa-regular fa-heart empty-heart"></i>
-              <i class="fa-solid fa-heart filled-heart"></i>
-            </label>
-          </div>
-
-          <!-- Restaurant 4 -->
-          <div class="card">
-            <a href="./Menu/Le délice des sens.html">
-              <img
-                src="./images/restaurants/Le sens des délices.jpg"
-                alt="Le délice des sens"
-              />
-              <div class="card-content">
-                <h3 class="card-title">Le délice des sens</h3>
-                <p class="card-subtitle">Folie-Méricourt</p>
-              </div>
-            </a>
-            <input type="checkbox" id="fav4" hidden />
-            <label for="fav4" class="favorite-icon">
-              <i class="fa-regular fa-heart empty-heart"></i>
-              <i class="fa-solid fa-heart filled-heart"></i>
-            </label>
-          </div>
-        </div>
-      </section>
+         <!-- Restaurant 2 -->
+<div class="card">
+  <a href="Menu/La note enchantée.html">
+    <img src="./images/restaurants/La note enchantée.jpg" alt="La note enchantée" />
+    <span class="new-label">Nouveau</span>
+    <div class="card-content">
+      <!-- Bloc texte à gauche -->
+      <div class="text-block">
+        <h3 class="card-title">La note enchantée</h3>
+        <p class="card-subtitle">Charonne</p>
+      </div>
+      <!-- Bloc favori à droite -->
+      <div class="fav-block">
+        <input type="checkbox" id="fav2" hidden />
+        <label for="fav2" class="favorite-icon">
+          <i class="fa-regular fa-heart empty-heart"></i>
+          <i class="fa-solid fa-heart filled-heart"></i>
+        </label>
+      </div>
     </div>
+  </a>
+</div>
 
+<!-- Restaurant 3 -->
+<div class="card">
+  <a href="./Menu/A la française.html">
+    <img src="./images/restaurants/A la française.jpg" alt="À la française" />
+    <div class="card-content">
+      <!-- Bloc texte à gauche -->
+      <div class="text-block">
+        <h3 class="card-title">À la française</h3>
+        <p class="card-subtitle">Cité Rouge</p>
+      </div>
+      <!-- Bloc favori à droite -->
+      <div class="fav-block">
+        <input type="checkbox" id="fav3" hidden />
+        <label for="fav3" class="favorite-icon">
+          <i class="fa-regular fa-heart empty-heart"></i>
+          <i class="fa-solid fa-heart filled-heart"></i>
+        </label>
+      </div>
+    </div>
+  </a>
+</div>
+
+<!-- Restaurant 4 -->
+<div class="card">
+  <a href="./Menu/Le délice des sens.html">
+    <img src="./images/restaurants/Le sens des délices.jpg" alt="Le délice des sens" />
+    <div class="card-content">
+      <!-- Bloc texte à gauche -->
+      <div class="text-block">
+        <h3 class="card-title">Le délice des sens</h3>
+        <p class="card-subtitle">Folie-Méricourt</p>
+      </div>
+      <!-- Bloc favori à droite -->
+      <div class="fav-block">
+        <input type="checkbox" id="fav4" hidden />
+        <label for="fav4" class="favorite-icon">
+          <i class="fa-regular fa-heart empty-heart"></i>
+          <i class="fa-solid fa-heart filled-heart"></i>
+        </label>
+      </div>
+    </div>
+  </a>
+</div>
+</section>
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
