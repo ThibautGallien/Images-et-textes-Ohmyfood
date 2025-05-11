@@ -87,7 +87,6 @@
 /****** CONTENEUR PRINCIPAL ***********/
 .main-container {
   width: 100%;
-  max-width: 368px;
   margin: 0 auto;
 }
 
@@ -331,7 +330,9 @@ header .logo {
 /* Bloc du favori (cœur) */
 .fav-block {
   display: flex;
-  align-items: flex-start;
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
 }
 
 /* Icône favori (cœur) */
@@ -541,7 +542,9 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
   }
   .fav-block {
     display: flex;
-    align-items: flex-start;
+    position: absolute;
+    bottom: 50px;
+    right: 28px;
   }
   .favorite-icon {
     position: relative;
@@ -553,6 +556,9 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
   }
   .empty-heart {
     font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
     z-index: 1;
   }
   .filled-heart {
@@ -560,7 +566,7 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
     z-index: 2;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     background: linear-gradient(45deg, #9356dc, #ff79da);
     background-size: 0 100%;
     background-repeat: no-repeat;
@@ -750,6 +756,14 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
     cursor: pointer;
     font-size: 28px;
   }
+
+  .fav-block {
+    display: flex;
+    position: absolute;
+    bottom: 68px;
+    right: 28px;
+  }
+
   .restaurants .empty-heart {
     font-size: inherit;
     z-index: 1;
@@ -771,29 +785,31 @@ input[type="checkbox"]:checked + .favorite-icon .filled-heart {
   .restaurants input[type="checkbox"]:checked + .favorite-icon .filled-heart {
     background-size: 100% 100%;
   }
-  .restaurants .footer {
-    height: 114px;
+  /* ---- Footer ---- */
+  .footer {
+    background-color: var(--footer-color);
+    padding: 20px 0;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 50px;
     padding-top: 50px;
-    margin-top: 0;
+    padding-bottom: 20px;
   }
-  .restaurants .footer-content {
+  .footer-content {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: flex-end;
-    width: 100%;
-    padding: 0 40px;
-    box-sizing: border-box;
-  }
-  .restaurants .footer-nav {
-    order: 1;
-    margin: 0;
-  }
-  .restaurants .footer-logo {
-    order: 2;
-    margin-left: 50px;
-  }
-  .restaurants .footer-content {
+    align-items: center;
     gap: 20px;
+  }
+
+  /* logo en dernier */
+  .footer-logo {
+    order: 5;
+    margin-left: 60px;
+  }
+  .footer-logo img {
+    width: 100px;
+    height: auto;
   }
 } /*# sourceMappingURL=styles2.0.css.map */
