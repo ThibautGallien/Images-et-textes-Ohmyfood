@@ -275,13 +275,13 @@ header .logo {
 .footer {
   background-color: var(--footer-color);
   padding: 20px 0;
+  margin-top: 20px;
+  padding-left: 20px;
 }
-
 /* Conteneur vertical */
 .footer-content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: flex-start;
   gap: 10px;
 }
@@ -293,6 +293,9 @@ header .logo {
   display: block;
 }
 
+.footer-logo {
+  order: 0;
+}
 /* Chaque bloc de navigation */
 .footer-nav {
   margin: 0;
@@ -369,29 +372,25 @@ header .logo {
     display: block;
     margin: 40px auto;
   }
-}
-/*Footer*/
-.footer {
-  height: 114px;
-}
+  /*Footer*/
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    gap: 30px;
+  }
 
-.footer-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  padding-top: 20px;
-  padding-right: 40px;
-  padding-bottom: 20px;
-  box-sizing: border-box;
-  gap: 30px;
-}
+  .footer-nav {
+    order: 1;
+  }
 
-.footer-nav {
-  order: 1;
-}
-
-.footer-logo {
-  order: 2;
+  .footer-logo {
+    order: 2;
+  }
 } /*# sourceMappingURL=menu2.0.css.map */
