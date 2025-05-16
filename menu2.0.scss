@@ -1,0 +1,395 @@
+/****** RESET DE BASE + FONTS ***********/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/****** VARIABLES ***********/
+:root {
+  --primary-color: #9356dc; /* Couleur principale */
+  --button-color: #ff79da; /* Couleur des boutons */
+  --new: #99e2d0; /* Couleur du label 'Nouveau' */
+  --footer-color: #353535; /* Couleur de fond du footer */
+  --text-color: #000000; /* Couleur du texte */
+  --grey-color: #eaeaea; /* Pour la barre de localisation par ex. */
+  --section-color: #f6f6f6; /* Couleur de fond des sections */
+}
+
+/****** CONTENEUR PRINCIPAL ***********/
+.main-container {
+  width: 100%;
+  max-width: 368px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/****** LIENS ***********/
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/****** TITRES DE SECTION ***********/
+.section-title {
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/****** HEADER ***********/
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 0 0px;
+}
+
+/* Logo */
+header .logo {
+  width: 197px;
+  height: 36px;
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+
+.btn-retour {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.menu-img {
+  width: 100%;
+  height: 275px;
+  z-index: -1;
+}
+
+/****** MENU ***********/
+.menu {
+  margin-top: -50px;
+  background-color: white;
+  border-radius: 30px;
+  padding-top: 10px;
+}
+
+.restaurant-container {
+  position: relative;
+  margin: 20px;
+}
+
+.restaurant-name {
+  font-size: 28px;
+  font-weight: 800;
+  font-style: italic;
+  font-family: "Shrikhand", serif;
+  margin-bottom: -20px;
+}
+
+.favorite-icon {
+  position: absolute;
+  right: 15px;
+  bottom: 7px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cœur vide */
+.empty-heart {
+  font-size: 29px;
+  z-index: 1;
+}
+
+/* Cœur plein superposé et animé */
+.filled-heart {
+  font-size: 30px;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #9356dc, #ff79da);
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 2s ease;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Quand la checkbox est cochée, le cœur plein se remplit */
+#fav:checked + .favorite-icon .filled-heart {
+  background-size: 100% 100%;
+}
+
+.menu-category {
+  font-weight: 300;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  border-bottom: var(--new) 3px solid;
+  width: 40px;
+  margin-top: 50px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-card {
+  background-color: var(--section-color);
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.menu-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.menu-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.menu-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.menu-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.plat {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sub-plat {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.plat-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plat,
+.plat-sub {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-content {
+  flex: 1;
+  transition: width 0.3 ease;
+  overflow: hidden;
+}
+
+/* Check (invisible par défaut) */
+.check-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--new);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.fa-solid.check-icon {
+  color: white;
+  font-size: 20px;
+}
+.menu-card:hover .check-panel {
+  width: 70px;
+}
+
+.menu-card:hover .price {
+  margin-right: 70px;
+  transition: width 0.3s ease;
+}
+
+.btn {
+  display: block;
+  width: 186px;
+  height: 50px;
+  margin: 40px auto 50px;
+  padding: 14px 28px;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0px 5px 15px rgba(151, 71, 255, 0.3);
+  background: linear-gradient(to bottom, #9356dc, #ff79da);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(to bottom, #9356dc, #ff79da),
+    linear-gradient(to bottom, #ffffff26, #ffffff26);
+  background-blend-mode: lighten;
+  box-shadow: 0px 5px 15px rgba(151, 71, 255, 0.5);
+}
+
+/****** FOOTER ***********/
+.footer {
+  background-color: var(--footer-color);
+  padding: 20px 0;
+}
+
+/* Conteneur vertical */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Logo */
+.footer-logo img {
+  width: 139px;
+  height: auto;
+  display: block;
+}
+
+/* Chaque bloc de navigation */
+.footer-nav {
+  margin: 0;
+}
+
+/* Lien dans la nav */
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Icônes dans la nav */
+.footer-nav img {
+  width: 11px;
+  height: 13px;
+  margin-right: 10px;
+}
+
+/****** MEDIA QUERIES ***********/
+/*Tablette*/
+@media (max-width: 1024px) and (min-width: 768px) {
+}
+
+@media (min-width: 1440px) {
+  /* Header */
+  .menu-img {
+    width: 100%;
+    height: 381px;
+    object-fit: cover;
+  }
+
+  /* Section menu */
+  .menu {
+    max-width: 1055px;
+    height: 1105px;
+    margin-left: 250px;
+    background-color: var(--section-color);
+    border-top: 20px;
+    border-radius: 30px 30px 0px 0px;
+  }
+
+  /*En-tête du menu : titre centré et cœur à côté*/
+  .restaurant-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .favorite-icon {
+    position: absolute;
+    right: 320px;
+    bottom: 7px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-header h2 {
+    font-size: 40px;
+    margin: 0;
+    text-align: center;
+  }
+
+  /*Restaurant container : centré, dimensions fixes*/
+  .menu-section {
+    width: 634px;
+    height: 270px;
+    margin-left: 210px;
+    margin-right: 210px;
+    margin-bottom: -20px;
+  }
+
+  /*Bouton centré*/
+  .btn {
+    display: block;
+    margin: 40px auto;
+  }
+}
+/*Footer*/
+
+.footer {
+  height: 114px;
+}
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-top: 20px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  gap: 30px;
+}
+.footer-nav {
+  order: 1;
+}
+.footer-logo {
+  order: 2;
+}

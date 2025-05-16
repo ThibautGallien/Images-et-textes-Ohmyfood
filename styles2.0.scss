@@ -1,0 +1,835 @@
+@charset "UTF-8";
+/****** RESET DE BASE + FONTS ***********/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/****** VARIABLES ***********/
+:root {
+  --primary-color: #9356dc; /* Couleur principale */
+  --button-color: #ff79da; /* Couleur des boutons */
+  --new: #99e2d0; /* Couleur du label 'Nouveau' */
+  --footer-color: #353535; /* Couleur de fond du footer */
+  --text-color: #000000; /* Couleur du texte */
+  --grey-color: #eaeaea; /* Pour la barre de localisation par ex. */
+  --section-color: #f6f6f6; /* Couleur de fond des sections */
+}
+
+/* LOADER */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  pointer-events: none;
+  animation: loader-fadeout 2s both ease-in-out;
+}
+
+/* Spinner */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--primary-color),
+    var(--button-color),
+    var(--new),
+    var(--primary-color)
+  );
+  background-size: 100% 100%; /* On affiche le gradient au complet */
+  background-repeat: no-repeat;
+  animation: spin 2s linear infinite;
+  position: relative;
+}
+
+/* Cercle intérieur pour créer l'effet d'anneau */
+.spinner::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* Animation de rotation du spinner */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Animation pour faire disparaître le loader en fondu */
+@keyframes loader-fadeout {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/****** CONTENEUR PRINCIPAL ***********/
+.main-container {
+  width: 100%;
+  max-width: 368px;
+
+  margin: 0 auto;
+}
+
+/****** LIENS ***********/
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/****** TITRES DE SECTION ***********/
+.section-title {
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/****** HEADER ***********/
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 10px;
+}
+
+/* Logo */
+header .logo {
+  width: 197px;
+  height: 36px;
+}
+
+/****** BARRE DE LOCALISATION ***********/
+.localisation-bar {
+  width: 100%;
+  background-color: var(--grey-color);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  border: solid 1px #eaeaea;
+  padding: 10px;
+}
+
+.localisation {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  justify-content: center;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.localisation img {
+  width: 12px;
+  height: 16px;
+}
+
+/****** BLOC PRÉSENTATION + BOUTON ***********/
+.presentation {
+  text-align: center;
+  padding: 30px;
+  background-color: var(--section-color);
+}
+
+.presentation h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.presentation p {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--footer-color);
+  margin-bottom: 40px;
+}
+
+/* Bouton principal */
+.cta-button {
+  display: inline-block;
+  background-color: var(--button-color);
+  padding: 14px 28px;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 5px 15px rgba(151, 71, 255, 0.3);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ff79da;
+  box-shadow: 0px 5px 15px rgba(151, 71, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/****** FONCTIONNEMENT ***********/
+.fonctionnement {
+  margin-bottom: 80px;
+  margin-top: 30px;
+  background-color: white;
+}
+
+.fonctionnement .section-title {
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: 20px;
+}
+
+/* Chaque étape */
+.fonctionnement-step {
+  background-color: var(--section-color);
+  border-radius: 20px;
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.fonctionnement-step img {
+  width: 15px;
+  height: 18px;
+}
+
+.fonctionnement-step p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  margin-left: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle p {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/****** SECTION RESTAURANTS ***********/
+.restaurants {
+  width: 100%;
+  padding-top: 60px;
+  background-color: var(--section-color);
+}
+
+/* Titre “Restaurants” */
+.restaurants-title {
+  margin-bottom: 15px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.restaurants-title h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Liste de cartes */
+.restaurants-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+/* Chaque carte */
+.restaurants-cards .card {
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* L’image en haut de la carte */
+.restaurants-cards img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Label “Nouveau”, positionné en haut à droite sur l’image */
+.new-label {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #99e2d0;
+  color: #008766;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Contenu texte de la carte */
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+/* Bloc texte (titre et sous-titre) */
+.text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 4px 0;
+}
+
+.card-subtitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+/* Bloc du favori (cœur) */
+.fav-block {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Icône favori (cœur) */
+.favorite-icon {
+  position: relative;
+  width: 21px;
+  cursor: pointer;
+  display: flex;
+}
+
+/* Cœur vide */
+.empty-heart {
+  font-size: 30px;
+  z-index: 1;
+}
+
+/* Cœur plein superposé et animé */
+.filled-heart {
+  font-size: 30px;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #9356dc, #ff79da);
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 2s ease;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Au clic sur le checkbox, le cœur se remplit */
+input[type="checkbox"]:checked + .favorite-icon .filled-heart {
+  background-size: 100% 100%;
+}
+
+/****** FOOTER ***********/
+.footer {
+  background-color: var(--footer-color);
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+/* Conteneur vertical */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Logo */
+.footer-logo img {
+  width: 139px;
+  height: auto;
+  display: block;
+}
+
+/* Chaque bloc de navigation */
+.footer-nav {
+  margin: 0;
+}
+
+/* Lien dans la nav */
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Icônes dans la nav */
+.footer-nav img {
+  width: 11px;
+  height: 13px;
+  margin-right: 10px;
+}
+
+/* Responsive tablette */
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  /*CONTENEUR PRINCIPAL*/
+  .main-container {
+    max-width: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /*HEADER*/
+  header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+  header .logo {
+    width: 250px;
+    height: auto;
+    display: inline-block;
+  }
+
+  /*BARRE DE LOCALISATION*/
+  .localisation-bar,
+  .localisation {
+    text-align: center;
+    justify-content: center;
+  }
+  .localisation {
+    padding: 10px 20px;
+  }
+
+  /*PRÉSENTATION + BOUTON*/
+  .presentation {
+    text-align: center;
+    padding: 40px 0;
+  }
+  .presentation h2 {
+    font-size: 32px; /* Augmente la taille du titre */
+  }
+  .cta-button {
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  /*FONCTIONNEMENT*/
+  .fonctionnement {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .fonctionnement-step {
+    flex: 1;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: var(--section-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .fonctionnement-step img {
+    margin: 0 10px;
+  }
+
+  .fonctionnement-step p {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  /*SECTION RESTAURANTS*/
+  .restaurants {
+    padding-top: 40px;
+    background-color: var(--section-color);
+  }
+  .restaurants-title {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    text-align: left;
+  }
+  .restaurants-title h2 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .restaurants-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .restaurants-cards .card {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  .restaurants-cards .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 20px;
+    position: relative;
+  }
+  .text-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+  }
+  .card-subtitle {
+    font-size: 17px;
+    font-weight: 300;
+    margin: 0;
+  }
+  .fav-block {
+    display: flex;
+    align-items: flex-start;
+  }
+  .favorite-icon {
+    position: relative;
+    width: 21px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .empty-heart {
+    font-size: 30px;
+    z-index: 1;
+  }
+  .filled-heart {
+    font-size: 30px;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #9356dc, #ff79da);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 2s ease;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  input[type="checkbox"]:checked + .favorite-icon .filled-heart {
+    background-size: 100% 100%;
+  }
+
+  /*FOOTER*/
+  .footer {
+    background-color: var(--footer-color);
+    height: 114px;
+    padding-top: 50px;
+    margin-top: 20px;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+    gap: 20px;
+  }
+
+  .footer-nav {
+    order: 1;
+    margin: 0 10px 0 0;
+  }
+  .footer-logo {
+    order: 2;
+    margin-left: 50px;
+  }
+  .footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-nav img {
+    width: 11px;
+    height: 13px;
+    margin-right: 10px;
+  }
+  .footer-logo img {
+    width: 139px;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Responsive ordinateur*/
+@media screen and (min-width: 1440px) {
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  /* Le conteneur principal prend toute la largeur */
+  .main-container {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* ---- Header ---- */
+  header {
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  header .logo {
+    display: inline-block;
+  }
+
+  /* ---- Barre de localisation (centrée) ---- */
+  .localisation-bar {
+    text-align: center;
+  }
+  .localisation {
+    justify-content: center;
+  }
+
+  /* ---- Titre H2 en 40px, bouton centré ---- */
+  .presentation {
+    text-align: center;
+    padding: 40px 0;
+  }
+  .presentation h2 {
+    font-size: 40px;
+  }
+
+  .cta-button {
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  /* ---- Fonctionnement ---- */
+  .fonctionnement {
+    text-align: center;
+  }
+
+  /* 3 steps */
+  .fonctionnement-step {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 335px;
+    height: 72px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+  }
+
+  .fonctionnement-step img {
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+  .fonctionnement-step p {
+    text-align: left;
+  }
+
+  /* ---- Restaurants ---- */
+  .restaurants {
+    padding-top: 10px;
+
+    .restaurants-title {
+      width: 1100px;
+      margin: 0 auto 40px auto;
+      text-align: left;
+    }
+    /* Conteneur des cartes */
+    .restaurants-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Chaque carte */
+    .restaurants-cards .card {
+      border-radius: 20px;
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    /* Image en haut de la carte */
+    .restaurants-cards .card img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Label "Nouveau" en haut à droite */
+    .new-label {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: #99e2d0;
+      color: #008766;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+      z-index: 2;
+    }
+
+    /* Contenu texte */
+    .card-content {
+      flex: 1;
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .card-subtitle {
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* Icône favori (cœur) positionné en haut à droite */
+    .restaurants-cards .card .favorite-icon {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 28px;
+    }
+
+    .empty-heart {
+      font-size: inherit;
+      z-index: 1;
+    }
+
+    .filled-heart {
+      font-size: inherit;
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(45deg, #9356dc, #ff79da);
+      background-size: 0 100%;
+      background-repeat: no-repeat;
+      transition: background-size 2s ease;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Quand le checkbox est coché, le cœur plein se remplit */
+    input[type="checkbox"]:checked + .favorite-icon .filled-heart {
+      background-size: 100% 100%;
+    }
+
+    .footer {
+      height: 114px;
+      padding-top: 50px;
+      margin-top: 0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 0 40px;
+      box-sizing: border-box;
+    }
+    .footer-nav {
+      order: 1;
+      margin: 0;
+    }
+    .footer-logo {
+      order: 2;
+      margin-left: 50px;
+    }
+    .footer-content {
+      gap: 20px;
+    }
+  }
+}
